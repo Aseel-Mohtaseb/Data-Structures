@@ -1,4 +1,4 @@
-import 'stack.dart';
+import '../models/stack.dart';
 
 bool isParenthesesBalanced(String text) {
   Stack stack = Stack<String>();

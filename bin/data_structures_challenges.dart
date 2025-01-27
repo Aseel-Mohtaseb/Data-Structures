@@ -1,33 +1,34 @@
-import 'stack/reverse_a_list.dart';
-import 'stack/balance_parentheses.dart';
-import 'linked_list/linked_list.dart';
-import 'linked_list/print_in_reverse.dart';
-import 'linked_list/find_middle_node.dart';
-import 'linked_list/reverse_linked_list.dart';
-import 'linked_list/remove_all_occurrences.dart';
+import 'utils/reverse_a_list.dart';
+import 'utils/balance_parentheses.dart';
+import 'models/linked_list.dart';
 
 void main() {
   // challenge 1: reverse a list
   List<int> numbersList = [1, 2, 3, 4, 5, 6];
-  print('Original list: \n$numbersList \nReversed list:');
+  print('Challenge 1: Reverse a List');
+  print('Original list: $numbersList');
+  print('Reversed list:');
   reverseAList(numbersList);
   print('\n');
 
   List<String> namesList = ['Aseel', 'Amer', 'Haya', 'Lena'];
-  print('Original list: \n$namesList \nReversed list:');
+  print('Original list: $namesList');
+  print('Reversed list:');
   reverseAList(namesList);
-  print('\n \n');
+  print('\n');
 
   // challenge 2: balance the parentheses
   String text = '()()((()))';
-  print('Balanced parentheses: $text \nis it balanced?');
-  print(isParenthesesBalanced(text));
-  print('\n');
+  print('Challenge 2: Balance Parentheses');
+  print('Text: $text');
+  print('Is it balanced? ${isParenthesesBalanced(text)} \n');
 
   text = '(()))';
-  print('Balanced parentheses: $text \nis it balanced?');
-  print(isParenthesesBalanced(text));
-  print('\n \n');
+  print('Text: $text');
+  print('Is it balanced? ${isParenthesesBalanced(text)}');
+  print('\n ');
+
+  // Linked List
 
   LinkedList<int> linkedList = LinkedList<int>();
   linkedList.push(1);
@@ -36,25 +37,33 @@ void main() {
   linkedList.push(4);
   linkedList.push(5);
 
-  // challenge 1 (Linked List): print in reverse
-  print('Original list: \n$linkedList \nReversed list:');
-  printInReverse(linkedList.head);
+  // challenge 3: print in reverse
+  print('Challenge 3: Print in Reverse');
+  print('Original Linked List: $linkedList');
+  print('Printed in reverse:');
+  linkedList.printListInReverse();
+  print('\n');
 
-  // challenge 2 (Linked List): find the middle node
-  print('\n\nMiddle node: ${findMiddleNode(linkedList)?.value}');
+  // challenge 4: find the middle node
+  print('Challenge 4: Find the Middle Node');
+  print('Middle node: ${linkedList.findMiddleNode()?.value}');
+  print('\n');
 
-  // challenge 3 (Linked List): reverse the linked list
+  // challenge 5: reverse the linked list
+  print('Challenge 5: Reverse the Linked List');
   print('The linked list before reversing: \n$linkedList');
-  reverseLinkedList(linkedList);
+  linkedList.reverse();
   print('The linked list after reversing: \n$linkedList');
+  print('\n');
 
-  // challenge 4 (Linked List): remove all occurrences
+  // challenge 6: remove all occurrences
   linkedList.push(1);
-  linkedList.push(2);
   linkedList.push(3);
   linkedList.push(3);
+  linkedList.push(4);
   linkedList.push(3);
-  print('The linked list before removing all occurrences of 1: \n$linkedList');
-  removeAllOccurrences(linkedList, 3);
-  print('The linked list after removing all occurrences of 1: \n$linkedList');
+  print('Challenge 6: Remove All Occurrences');
+  print('The linked list before removing all occurrences 3: \n$linkedList');
+  linkedList.removeAllOccurrences(3);
+  print('The linked list after removing all occurrences 3: \n$linkedList');
 }

@@ -1,16 +1,7 @@
+import 'node.dart';
+
 // i created this class while reading the linked list chapter in the book
-
-class Node<T> {
-  Node({required this.value, this.next});
-  T value;
-  Node<T>? next;
-
-  @override
-  String toString() {
-    if (next == null) return '$value';
-    return '$value -> ${next.toString()}';
-  }
-}
+// then i added some functions to it according to the challenges
 
 class LinkedList<E> {
   Node<E>? head;
@@ -93,6 +84,11 @@ class LinkedList<E> {
     return value;
   }
 
+  ///
+  /// FROM HERE
+  /// functions that i added to the class:
+  ///
+
   int get length {
     int length = 0;
     Node<E>? currentNode = head;
@@ -103,4 +99,52 @@ class LinkedList<E> {
     return length;
   }
 
+  void printListInReverse() {
+    printInReverseFromNode(head);
+  }
+
+  void printInReverseFromNode(Node<E>? node) {
+    if (node == null) return;
+    printInReverseFromNode(node.next);
+    print(node.value);
+  }
+
+  Node<E>? findMiddleNode() {
+    int middleIndex = length ~/ 2;
+    return nodeAt(middleIndex);
+  }
+
+  void reverse() {
+    Node<E>? previousNode = head;
+    Node<E>? currentNode = head?.next;
+    Node<E>? nextNode = currentNode?.next;
+
+    previousNode?.next = null;
+    while (currentNode != null) {
+      currentNode.next = previousNode;
+      previousNode = currentNode;
+      currentNode = nextNode;
+      nextNode = nextNode?.next;
+    }
+
+    head = previousNode;
+  }
+
+  void removeAllOccurrences(E value){
+  Node<E>? currentNode = head;
+  Node<E>? previousNode;
+
+  while (currentNode != null) {
+    if (currentNode.value == value) {
+      if (previousNode == null) {
+        head = currentNode.next;
+      } else {
+        previousNode.next = currentNode.next;
+      }
+    } else {
+      previousNode = currentNode;
+    }
+    currentNode = currentNode.next;
+  }
+}
 }
