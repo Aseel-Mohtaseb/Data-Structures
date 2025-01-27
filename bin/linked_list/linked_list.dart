@@ -92,4 +92,15 @@ class LinkedList<E> {
     node.next = node.next?.next;
     return value;
   }
+
+  int get length {
+    int length = 0;
+    Node<E>? currentNode = head;
+    while (currentNode != null) {
+      length += 1;
+      currentNode = currentNode.next;
+    }
+    return length;
+  }
+
 }
