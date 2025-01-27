@@ -3,6 +3,7 @@ import 'stack/balance_parentheses.dart';
 import 'linked_list/linked_list.dart';
 import 'linked_list/print_in_reverse.dart';
 import 'linked_list/find_middle_node.dart';
+import 'linked_list/reverse_linked_list.dart';
 
 void main() {
   // challenge 1: reverse a list
@@ -42,5 +43,9 @@ void main() {
   // challenge 2 (Linked List): find the middle node
   print('\n\nMiddle node: ${findMiddleNode(linkedList)?.value}');
 
+  // challenge 3 (Linked List): reverse the linked list
+  print('The linked list before reversing: \n$linkedList');
+  reverseLinkedList(linkedList);
+  print('The linked list after reversing: \n$linkedList');
   
 }
