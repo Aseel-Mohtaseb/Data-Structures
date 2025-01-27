@@ -4,6 +4,7 @@ import 'linked_list/linked_list.dart';
 import 'linked_list/print_in_reverse.dart';
 import 'linked_list/find_middle_node.dart';
 import 'linked_list/reverse_linked_list.dart';
+import 'linked_list/remove_all_occurrences.dart';
 
 void main() {
   // challenge 1: reverse a list
@@ -39,7 +40,6 @@ void main() {
   print('Original list: \n$linkedList \nReversed list:');
   printInReverse(linkedList.head);
 
-
   // challenge 2 (Linked List): find the middle node
   print('\n\nMiddle node: ${findMiddleNode(linkedList)?.value}');
 
@@ -47,5 +47,14 @@ void main() {
   print('The linked list before reversing: \n$linkedList');
   reverseLinkedList(linkedList);
   print('The linked list after reversing: \n$linkedList');
-  
+
+  // challenge 4 (Linked List): remove all occurrences
+  linkedList.push(1);
+  linkedList.push(2);
+  linkedList.push(3);
+  linkedList.push(3);
+  linkedList.push(3);
+  print('The linked list before removing all occurrences of 1: \n$linkedList');
+  removeAllOccurrences(linkedList, 3);
+  print('The linked list after removing all occurrences of 1: \n$linkedList');
 }
